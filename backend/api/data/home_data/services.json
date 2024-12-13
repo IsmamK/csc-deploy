@@ -1,0 +1,31 @@
+{
+    "bgColor": "#ffffff",
+    "textColor": "#cd993f",
+    "cardBgColor": "#000000",
+    "cardTextColor": "#cd993f",
+    "iconColor": "#cd993f",
+    "title": "Services and Offerings",
+    "description": "Start Your Journey Today with Committed Student Consultancy. We offer comprehensive services, providing personalized guidance at each step\u2014from program selection to visa approval. Through trusted partnerships with globally recognized universities, including Britts Imperial University College, Nest Academy, and EWVS in Australia, we ensure direct pathways to your educational goals. Our proven success is reflected in real testimonials and case studies from students who have successfully achieved their dreams with our support. Explore our services, browse top study destinations, and discover how we can help you achieve an international education with confidence and ease.",
+    "services": [
+        {
+            "title": "Personalized Counseling",
+            "description": "We understand each student\u2019s goals are unique. Our counselors provide tailored advice, matching you with programs that align with your academic and career aspirations."
+        },
+        {
+            "title": "Application and Documentation Assistance",
+            "description": "We take the hassle out of applications. Our experts ensure your documents meet every requirement, increasing your chance of acceptance at your chosen institution."
+        },
+        {
+            "title": "Visa Support",
+            "description": "Navigating the visa process can be complex, but our visa specialists are here to guide you through each step, from document preparation to visa interview coaching, ensuring a smooth and secure visa application experience."
+        },
+        {
+            "title": "Accommodation & Settlement Assistance",
+            "description": "We help you transition into your new country by providing guidance on affordable and comfortable housing options, airport pickup, and practical advice for a smooth adjustment to your new environment."
+        },
+        {
+            "title": "Scholarships and Financial Aid Guidance",
+            "description": "Accessing quality education should be affordable. Our team connects you with scholarship opportunities and financial aid, helping reduce the cost of studying abroad."
+        }
+    ]
+}

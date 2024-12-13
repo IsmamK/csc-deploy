@@ -1,0 +1,17 @@
+{
+    "title": "Unlock your Dream",
+    "description": "Affordable study abroad made easy! Study in Dubai, Australia, Canada, and more with scholarships up to 50%. No IELTS needed, low tuition fees, and full-time work options. Pay after visa approval, fast-track admissions, and seamless credit transfers. Expert support for every step\u2014start your global journey today!",
+    "button1": {
+        "text": "Get started",
+        "link": "#"
+    },
+    "button2": {
+        "text": "Learn more",
+        "link": "#"
+    },
+    "videoSrc": "https://www.youtube.com/embed/dJurNcgJ1QI?si=89EFckIEUly9Q4bc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin",
+    "colors": {
+        "bgColor": "#000000",
+        "textColor": "#cd993f"
+    }
+}

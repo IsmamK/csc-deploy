@@ -1,0 +1,12 @@
+{
+    "title": "Our Location",
+    "subtitle": "Visit Us",
+    "description": "We are located at the city's heart, making it easy to reach us from anywhere. Feel free to stop by our office for any inquiries or say hello!",
+    "address": "Level 3B, Gate A5, Dubai International Stadium, Dubai Sports City, UAE",
+    "phone": "+880 1701-939143",
+    "email": "committedsc7@gmail.com",
+    "workingHours": "Mon - Sat, 10:00 - 06:00",
+    "mapSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.871297059531!2d90.39892109786058!3d23.78959444822721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c76a5032fe15%3A0xa249a829a31e7048!2sCommitted%20Student%20Consultancy!5e0!3m2!1sen!2sbd!4v1731661795855!5m2!1sen!2sbd",
+    "bgColor": "#cd993f",
+    "textColor": "#000000"
+}

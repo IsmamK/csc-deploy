@@ -1,0 +1,134 @@
+[
+    {
+        "slug": "one-one-discussion",
+        "title": "One-On-One Discussion",
+        "description": "Get personalized guidance with a dedicated one-on-one session! We\u2019re here to answer your questions, explore your options, and help you plan your study abroad journey with confidence.",
+        "heroText": " Personalized Support for Your Study Abroad Goals",
+        "heroImage": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&q=75&fit=crop&w=1000",
+        "features": [
+            {
+                "title": "Scholarships",
+                "description": "Discover scholarship opportunities worldwide.",
+                "iconPath": "M5 12h14v6H5v-6z"
+            },
+            {
+                "title": "Application Strategy",
+                "description": "Expert tips to increase your chances of scholarship success.",
+                "iconPath": "M4 12h16v6H4v-6z"
+            },
+            {
+                "title": "Essay Coaching",
+                "description": "Craft compelling essays that showcase your strengths.",
+                "iconPath": "M12 2L2 22h20L12 2z"
+            },
+            {
+                "title": "Documentation Assistance",
+                "description": "Get guidance on transcripts, recommendation letters, and more.",
+                "iconPath": "M3 3h18v18H3V3z"
+            },
+            {
+                "title": "Budget Planning",
+                "description": "Financial planning for your academic journey abroad.",
+                "iconPath": "M4 4h16v16H4V4z"
+            },
+            {
+                "title": "Follow-Up Support",
+                "description": "Assistance with scholarship renewals and maintaining eligibility.",
+                "iconPath": "M21 12L3 4v16l18-8z"
+            }
+        ],
+        "heroBgColor": "#000000",
+        "heroTextColor": "#cd993f",
+        "featuresBgColor": "#000000",
+        "featuresTextColor": "#cd993f"
+    },
+    {
+        "slug": "a-z-support",
+        "title": "A to Z Support Always",
+        "description": "From your first inquiry to your arrival abroad, we cover every step! Our A to Z support ensures a smooth journey, including application help, visa guidance, pre-departure prep, and post-arrival assistance. We\u2019re with you all the way!",
+        "heroText": "Achieve your best with structured guidance.",
+        "heroImage": "https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?auto=format&q=75&fit=crop&w=1000",
+        "features": [
+            {
+                "title": "Personalized Study Plans",
+                "description": "Study plans tailored to your test and timeline.",
+                "iconPath": "M12 2L2 22h20L12 2z"
+            },
+            {
+                "title": "Practice Tests",
+                "description": "Simulated exams to prepare you under real test conditions.",
+                "iconPath": "M4 4h16v16H4V4z"
+            },
+            {
+                "title": "One-on-One Tutoring",
+                "description": "Focused sessions on weak areas with skilled tutors.",
+                "iconPath": "M5 12h14v6H5v-6z"
+            },
+            {
+                "title": "Resource Materials",
+                "description": "Access to practice questions, videos, and books.",
+                "iconPath": "M3 3h18v18H3V3z"
+            },
+            {
+                "title": "Score Analysis",
+                "description": "Detailed feedback to understand and improve your score.",
+                "iconPath": "M12 2L2 22h20L12 2z"
+            },
+            {
+                "title": "Time Management Training",
+                "description": "Learn efficient strategies for managing time on exams.",
+                "iconPath": "M4 4h16v16H4V4z"
+            }
+        ],
+        "heroBgColor": "#ffffff",
+        "heroTextColor": "#cd993f",
+        "featuresBgColor": "#000000",
+        "featuresTextColor": "#cd993f"
+    },
+    {
+        "slug": "canada-schooling-visa",
+        "title": "Canada Schooling Visa",
+        "description": "Thinking about schooling in Canada? We help you secure a student visa with full guidance on requirements, documentation, and the application process. Start your Canadian journey with expert support tailored to your needs!",
+        "heroText": "Your Pathway to Canadian Education",
+        "heroBgColor": "#000000",
+        "heroTextColor": "#ffffff",
+        "featuresBgColor": "#000000",
+        "featuresTextColor": "#ffffff",
+        "heroImage": "",
+        "features": [
+            {
+                "title": "Feature is there",
+                "description": "this is explaind",
+                "iconPath": ""
+            },
+            {
+                "title": "Detailed Feature",
+                "description": "this is understood",
+                "iconPath": ""
+            },
+            {
+                "title": "More feature",
+                "description": "This is titular",
+                "iconPath": ""
+            }
+        ]
+    },
+    {
+        "slug": "free-pick-up",
+        "title": "Free Pick-Up",
+        "description": "",
+        "heroText": "",
+        "heroBgColor": "#000000",
+        "heroTextColor": "#FFFFFF",
+        "featuresBgColor": "#000000",
+        "featuresTextColor": "#FFFFFF",
+        "heroImage": "",
+        "features": [
+            {
+                "title": "",
+                "description": "",
+                "iconImage": ""
+            }
+        ]
+    }
+]

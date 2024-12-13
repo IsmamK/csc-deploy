@@ -1,0 +1,30 @@
+{
+    "title": "Frequently Asked Questions",
+    "subtitle": "Studying abroad comes with many questions, and we\u2019re here to provide clear answers. From application procedures and scholarship opportunities to visa processes and post-arrival support, we cover all the key details to make your journey as smooth as possible. If you need further assistance, our team is always ready to offer personalized help every step of the way.",
+    "bgColor": "#cf9b39",
+    "textColor": "#000000",
+    "faqBgColor": "#000000",
+    "faqTextColor": "#cf9b39",
+    "faqs": [
+        {
+            "question": "What services do you offer?",
+            "answer": "Free Consultation & Counseling, University & Program Selection, Visa Assistance & Application Support, Scholarship Guidance, Application Processing, Pre-Departure Support, Post-Arrival Support, Career & Job Placement Assistance, Language & Test Preparation, Cultural Exchange Programs."
+        },
+        {
+            "question": "Can I get free assessment?",
+            "answer": "Yes, we provide free counseling and profile assessments to help you choose the best study abroad options. Our expert team offers personalized guidance and support throughout the entire process, ensuring you make well-informed decisions for your future."
+        },
+        {
+            "question": "How much are the service charges?",
+            "answer": "At Committed Student Consultancy, we prioritize quality and personalized support to guide you through your study abroad journey. While our services are designed to provide exceptional value, we do charge a reasonable service fee to cover the expert guidance, visa assistance, and application processing. Our charges are transparent and commercially competitive, ensuring that you receive the best value for your investment in your future. Feel free to contact us for a detailed breakdown of the service charges based on your specific needs."
+        },
+        {
+            "question": "What happens if my visa is rejected?",
+            "answer": "At Committed Student Consultancy, we ensure that your profile is 100% suitable and aligned with the requirements before applying for a visa. We carefully review each application, making sure all necessary documents and qualifications meet the standards. In rare cases, if there are any concerns, we work with you to adjust or recommend flexible programs to improve your chances. Our focus is on submitting only strong, complete applications, so rejection is highly unlikely."
+        },
+        {
+            "question": "What post arrival services you provide?",
+            "answer": "We offer comprehensive post-arrival support to ensure a smooth transition for students. Our services include airport pickup, accommodation assistance, university orientation, and ongoing guidance to help you settle into your new environment. We\u2019re here to support you every step of the way, from adjusting to life abroad to providing continuous academic and personal support throughout your stay."
+        }
+    ]
+}

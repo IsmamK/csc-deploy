@@ -113,13 +113,12 @@ const Navbar = () => {
                 {route.subItems ? (
                   <>
                     <div
-                      className="cursor-pointer hover:text-yellow-600 flex items-center lg:hover:text-yellow-600"
+                      className="cursor-pointer hover:text-black flex items-center lg:hover:text-black"
                       onClick={() => toggleSubMenu(index)}
                     >
-                      <div onMouseEnter={() => toggleSubMenu(index)}>
+                      <div onMouseEnter={() => toggleSubMenu(index)} className='flex items-center'>
                         {route.label}
-                      </div>
-                      <svg
+                        <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 ml-1"
                         fill="currentColor"
@@ -127,9 +126,11 @@ const Navbar = () => {
                       >
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                       </svg>
+                      </div>
+                     
                     </div>
                     <ul
-                      className={`absolute left-0 top-8 bg-white shadow-md rounded-md p-2 w-48 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 z-10 ${
+                      className={`text-3xl absolute left-0 top-8 bg-white shadow-md rounded-md p-2 w-48 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 z-10 ${
                         openSubMenuIndex === index ? 'block' : 'hidden'
                       }`}
                       onMouseLeave={() => toggleSubMenu(index)}
@@ -137,8 +138,8 @@ const Navbar = () => {
                       {route.subItems.map((subItem, subIndex) => (
                         <li
                           key={subIndex}
-                          className={`py-0 px-2 rounded ${
-                            isActive(subItem.path) ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'
+                          className={`py-1 px-2 rounded text-xs ${
+                            isActive(subItem.path) ? 'bg-black text-black' : 'hover:bg-gray-100'
                           }`}
                         >
                           <a
@@ -146,8 +147,8 @@ const Navbar = () => {
                             style={{
                               color: navbarData.textColor,
                             }}
-                          >
-                            {subItem.label}
+                          > 
+                            {subItem.label} 
                           </a>
                         </li>
                       ))}
@@ -165,7 +166,7 @@ const Navbar = () => {
                   >
                     {route.label}
                     <span
-                      className={`absolute -bottom-1 left-0 w-full h-[1px]  bg-white transition-all duration-300 ${
+                      className={`absolute -bottom-1 left-0 w-full h-[1px]  bg-[#cd993f] transition-all duration-300 ${
                         isActive(route.path) ? 'scale-x-100' : 'scale-x-0'
                       }`}
                     ></span>

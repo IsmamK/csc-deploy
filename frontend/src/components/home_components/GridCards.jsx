@@ -78,7 +78,6 @@ const GridCards = ({ divider }) => {
       className="relative w-full"
       style={{ backgroundColor: cardData.bgColor, color: cardData.textColor }}
     >
-      {divider && <img src={divider} className="absolute top-0 z-10 w-full" alt="Divider" />}
 
       <div className="p-10 md:p-20 lg:p-20 mx-auto max-w-96 md:max-w-[1000px] lg:max-w-[1500px]">
         <h1 className="text-center text-4xl md:text-6xl lg:text-7xl font-bold my-5">
@@ -91,10 +90,10 @@ const GridCards = ({ divider }) => {
             {cardData.gridCards.map((card, index) => (
               <div
                 key={index}
-                className={`card-item border rounded-lg shadow-lg overflow-hidden mx-2 transition-all duration-300 transform mx-10 ${
+                className={`card-item border-8 border-white rounded-lg overflow-hidden mx-2 transition-all duration-300 transform bg-black ${
                   activeCard === index
-                    ? "ring-4 ring-blue-500 z-10" // Add a border when active, but no scaling
-                    : "h-[250px]" // Keep all cards at the same height
+                    ? "p-10 z-10" // Add a border when active, but no scaling
+                    : "h-[400px]" // Keep all cards at the same height
                 }`}
                 style={{
                   backgroundColor: card.flipBgColor,
@@ -110,7 +109,7 @@ const GridCards = ({ divider }) => {
                 </div>
                 <div className="card-image">
                   <img
-                    className="w-full h-48 object-cover"
+                    className="w-full h-52 object-cover"
                     src={card.image}
                     alt={card.title}
                   />

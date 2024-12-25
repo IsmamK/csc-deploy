@@ -7,9 +7,9 @@ const Contact2Modal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     title: "",
     subtitle: "",
-    phone: "",
+    phoneNumbers: [""], // Initialize with an empty array for multiple phone numbers
     email: "",
-    addresses: [""], // Initialize with an empty array for multiple addresses
+    addresses: [{ heading: "", details: "" }], // Initialize with an array of objects for multiple addresses with heading and details
     imageUrl: "",
     bgColor: "",
     textColor: "",
@@ -23,7 +23,8 @@ const Contact2Modal = ({ isOpen, onClose }) => {
         console.log(data);
         setFormData({
           ...data,
-          addresses: data.addresses || [""], // Ensure addresses is an array
+          phoneNumbers: data.phoneNumbers || [""], // Ensure phoneNumbers is an array
+          addresses: data.addresses || [{ heading: "", details: "" }], // Ensure addresses are initialized as an array of objects
         });
       })
       .catch((error) => console.error("Error fetching data:", error));
@@ -51,27 +52,27 @@ const Contact2Modal = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleAddressChange = (index, value) => {
-    const updatedAddresses = [...formData.addresses];
-    updatedAddresses[index] = value;
+  const handleDynamicFieldChange = (key, index, field, value) => {
+    const updatedFields = [...formData[key]];
+    updatedFields[index][field] = value;
     setFormData((prevData) => ({
       ...prevData,
-      addresses: updatedAddresses,
+      [key]: updatedFields,
     }));
   };
 
-  const addAddress = () => {
+  const addField = (key) => {
     setFormData((prevData) => ({
       ...prevData,
-      addresses: [...prevData.addresses, ""], // Add a new empty address
+      [key]: [...prevData[key], { heading: "", details: "" }], // Add a new address object with heading and details
     }));
   };
 
-  const removeAddress = (index) => {
-    const updatedAddresses = formData.addresses.filter((_, i) => i !== index);
+  const removeField = (key, index) => {
+    const updatedFields = formData[key].filter((_, i) => i !== index);
     setFormData((prevData) => ({
       ...prevData,
-      addresses: updatedAddresses,
+      [key]: updatedFields,
     }));
   };
 
@@ -98,6 +99,9 @@ const Contact2Modal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Log formData before sending it to check if new addresses are included
+    console.log(formData);
+
     // Send PATCH request
     fetch(`${apiUrl}/contact/contact2/`, {
       method: "PATCH",
@@ -110,7 +114,6 @@ const Contact2Modal = ({ isOpen, onClose }) => {
       .then((data) => {
         console.log("Updated Data:", data);
         onClose();
-        window.location.reload();
       })
       .catch((error) => console.error("Error updating data:", error));
   };
@@ -141,16 +144,7 @@ const Contact2Modal = ({ isOpen, onClose }) => {
               className="border p-2 rounded-lg"
             ></textarea>
           </div>
-          <div className="mb-4">
-            <label className="block font-bold">Phone</label>
-            <input
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="border p-2 rounded-lg"
-            ></input>
-          </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label className="block font-bold">Email</label>
             <input
               name="email"
@@ -158,21 +152,24 @@ const Contact2Modal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               className="border p-2 rounded-lg"
             ></input>
-          </div>
+          </div> */}
 
-          {/* Multiple Address Fields */}
-          <div className="mb-4">
-            <label className="block font-bold">Addresses</label>
-            {formData.addresses.map((address, index) => (
+          {/* Multiple Phone Numbers */}
+          {/* <div className="mb-4">
+            <label className="block font-bold">Phone Numbers</label>
+            {formData.phoneNumbers.map((phone, index) => (
               <div key={index} className="flex items-center mb-2">
-                <textarea
-                  value={address}
-                  onChange={(e) => handleAddressChange(index, e.target.value)}
+                <input
+                  type="text"
+                  value={phone}
+                  onChange={(e) =>
+                    handleDynamicFieldChange("phoneNumbers", index, index, e.target.value)  // This fixes the issue
+                  }
                   className="border p-2 rounded-lg flex-grow"
-                ></textarea>
+                />
                 <button
                   type="button"
-                  onClick={() => removeAddress(index)}
+                  onClick={() => removeField("phoneNumbers", index)}
                   className="ml-2 bg-red-500 text-white p-2 rounded"
                 >
                   Remove
@@ -181,12 +178,54 @@ const Contact2Modal = ({ isOpen, onClose }) => {
             ))}
             <button
               type="button"
-              onClick={addAddress}
+              onClick={() => addField("phoneNumbers")}
+              className="mt-2 bg-green-500 text-white p-2 rounded"
+            >
+              Add Phone Number
+            </button>
+          </div> */}
+
+          {/* Multiple Addresses with Heading and Details */}
+          {/* <div className="mb-4">
+            <label className="block font-bold text-2xl">Addresses</label>
+            {formData.addresses.map((address, index) => (
+              <div key={index} className="flex items-center mb-2">
+                <div className="flex flex-col w-full">
+                  <label className="block font-bold">Address Heading</label>
+                  <input
+                    type="text"
+                    value={address.heading}
+                    onChange={(e) =>
+                      handleDynamicFieldChange("addresses", index, "heading", e.target.value)
+                    }
+                    className="border p-2 rounded-lg mb-2"
+                  />
+                  <label className="block font-bold">Address Details</label>
+                  <textarea
+                    value={address.details}
+                    onChange={(e) =>
+                      handleDynamicFieldChange("addresses", index, "details", e.target.value)
+                    }
+                    className="border p-2 rounded-lg"
+                  ></textarea>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => removeField("addresses", index)}
+                  className="ml-2 bg-red-500 text-white p-2 rounded"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={() => addField("addresses")}
               className="mt-2 bg-green-500 text-white p-2 rounded"
             >
               Add Address
             </button>
-          </div>
+          </div> */}
 
           {/* Background and Text Color Pickers */}
           <div className="mb-4">
@@ -228,30 +267,24 @@ const Contact2Modal = ({ isOpen, onClose }) => {
             <label className="block font-bold">Image</label>
             <input
               type="file"
-              accept="image/*"
               onChange={handleImageChange}
               className="border p-2 rounded-lg"
             />
-            {formData.imageUrl && (
-              <img
-                src={formData.imageUrl}
-                alt="Contact"
-                className="mt-2 max-h-32 object-cover"
-              />
-            )}
           </div>
 
-          {/* Save and Cancel Buttons */}
-          <div className="flex justify-end mt-4">
+          <div className="flex justify-between items-center">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white p-4 rounded-lg"
+            >
+              Save Changes
+            </button>
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-300 p-2 rounded mr-2"
+              className="bg-gray-500 text-white p-4 rounded-lg"
             >
-              Cancel
-            </button>
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded">
-              Save Changes
+              Close
             </button>
           </div>
         </form>

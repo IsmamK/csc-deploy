@@ -9,7 +9,6 @@ const CarouselComponent = () => {
   const [images, setImages] = useState([]);
   const sliderRef = useRef(null); // Create a reference to the slider
 
-
   useEffect(() => {
     // Fetch the data from the API
     const fetchImages = async () => {
@@ -19,14 +18,14 @@ const CarouselComponent = () => {
           throw new Error('Failed to fetch images');
         }
         const data = await response.json();
-        setImages(data); // Update the images state
+        setImages(data.images); // Update the images state
       } catch (error) {
         console.error('Error fetching images:', error);
       }
     };
 
     fetchImages();
-  }, []);
+  }, [apiUrl]);
 
   // Settings for React Slick
   const settings = {
@@ -34,7 +33,7 @@ const CarouselComponent = () => {
     dotsClass: "slick-dots slick-thumb",
     fade: true,
     infinite: true, // Loop the carousel
-    speed: 500, // Transition speed
+    speed: 100, // Transition speed
     autoplay: true, // Enable auto-slide
     autoplaySpeed: 3000, // Interval between auto-slides (in ms)
     slidesToShow: 1, // Show one slide at a time
@@ -43,13 +42,13 @@ const CarouselComponent = () => {
   };
 
   return (
-    <div className="slider-container h-48 lg:h-[450px] items-center overflow-hidden relative">
+    <div className="slider-container h-48 lg:h-[600px] items-center overflow-hidden relative">
       {/* Custom Previous Button */}
       <button 
         className="absolute left-[30%] bottom-4 z-10 transform -translate-x-1/2 bg-white p-2 rounded-full"
         onClick={() => sliderRef.current.slickPrev()}
       >
-        <FaArrowLeft color="#333" className='text-xl lg:text-3xl '/>
+        <FaArrowLeft color="#333" className='text-xl lg:text-3xl' />
       </button>
 
       {/* Custom Next Button */}
@@ -60,18 +59,24 @@ const CarouselComponent = () => {
         <FaArrowRight className='text-xl lg:text-3xl' color="#333" />
       </button>
 
+      {/* Carousel Slider */}
       <Slider ref={sliderRef} {...settings}>
-        {/* Map over the images array to create img elements */}
-        {images.map((src, index) => (
-          <div key={index}>
-            <img 
-              src={src} 
-              alt={`Carousel image ${index + 1}`} 
-              className="object-center h-48 lg:h-[450px] w-full" 
-              loading="lazy" 
-            />
+        {images.length > 0 ? (
+          images.map((base64Image, index) => (
+            <div key={index}>
+              <img 
+                src={`data:image/jpeg;base64,${base64Image}`} // Add base64 encoding type
+                alt={`Carousel image ${index + 1}`} 
+                className="object-cover h-48 lg:h-[600px] w-full" 
+                loading="lazy" 
+              />
+            </div>
+          ))
+        ) : (
+          <div className="flex justify-center items-center text-gray-500">
+            <p>No images available</p>
           </div>
-        ))}
+        )}
       </Slider>
     </div>
   );

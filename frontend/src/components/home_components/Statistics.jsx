@@ -28,7 +28,7 @@ const Statistics = () => {
 
   return (
     <div
-      className="relative py-16"
+      className="relative py-4"
       style={{ backgroundColor: data.bgColor, color: data.textColor }}
     >
       <div className="py-6 sm:py-8 lg:py-12">
@@ -45,13 +45,13 @@ const Statistics = () => {
 
           {/* Statistics Grid */}
           <div
-            className="grid grid-cols-2 gap-6 rounded-lg p-6 md:grid-cols-4 md:gap-8 md:p-8"
+            className="grid grid-cols-2 gap-2 rounded-lg p-3 md:grid-cols-5 md:gap-2 md:p-5"
             style={{ backgroundColor: data.numbersBgColor }}
           >
             {data.stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center">
                 <a href={stat.link || "#"} target="_blank" rel="noopener noreferrer">
-                  {stat.icon && <img src={stat.icon} alt={stat.label} className="w-16 h-16 mb-2" />}
+                  {stat.icon && <img src={stat.icon} alt={stat.label} className="w-10 h-10 mb-2" />}
                 </a>
             
                 <div className="text-sm sm:text-base" style={{ color: data.numbersTextColor }}>

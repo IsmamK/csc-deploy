@@ -19,7 +19,7 @@ const PartnerCarouselComponent = () => {
           throw new Error('Failed to fetch images');
         }
         const data = await response.json();
-        setImages(data); // Update the images state
+        setImages(data.images); // Update the images state
       } catch (error) {
         console.error('Error fetching images:', error);
       }
@@ -43,7 +43,7 @@ const PartnerCarouselComponent = () => {
   };
 
   return (
-    <div className="slider-container h-48 lg:h-[450px] items-center overflow-hidden relative">
+    <div className="slider-container h-48 lg:h-[600px] items-center overflow-hidden relative">
       {/* Custom Previous Button */}
       <button 
         className="absolute left-[30%] bottom-4 z-10 transform -translate-x-1/2 bg-white p-2 rounded-full"
@@ -67,7 +67,7 @@ const PartnerCarouselComponent = () => {
             <img 
               src={src} 
               alt={`Carousel image ${index + 1}`} 
-              className="object-center h-48 lg:h-[450px] w-full" 
+              className="object-center h-48 lg:h-[600px] w-full" 
               loading="lazy" 
             />
           </div>

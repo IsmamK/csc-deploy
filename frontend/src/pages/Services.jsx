@@ -42,7 +42,7 @@ const Services = () => {
             {/* Hero Section */}
             <div className="bg-white pb-6 sm:pb-8 lg:pb-12 pt-24" style={{ backgroundColor: service.heroBgColor, color: service.heroTextColor }}>
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
+                    <section className="flex flex-col justify-between px-20 gap-6 sm:gap-10 md:gap-16 lg:flex-row">
                         {/* Content - start */}
                         <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
                             <p className="mb-4 font-semibold  md:mb-6 md:text-lg xl:text-xl">{service.tagline}</p>
@@ -72,10 +72,11 @@ const Services = () => {
                     <div className="grid gap-8 sm:grid-cols-2 md:gap-12 xl:grid-cols-3 xl:gap-16"> 
                         {service.features.map((feature, index) => (
                             <div key={index} className="flex gap-4 md:gap-6">
-                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg shadow-lg md:h-14 md:w-14 md:rounded-xl" style={{ backgroundColor: service.heroTextColor, color: service.heroBgColor }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path d={feature.iconPath} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                                    </svg>
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg shadow-lg md:h-16 md:w-16 md:rounded-xl" style={{ backgroundColor: service.heroTextColor, color: service.heroBgColor }}>
+                               {feature.iconImage &&
+                                <img src={feature.iconImage} className='w-12 h-12'/>
+                               }
+
                                 </div>
                                 <div>
                                     <h3 className="mb-2 text-lg font-semibold md:text-xl">{feature.title}</h3>

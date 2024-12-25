@@ -15,7 +15,7 @@ const PartnerCarouselModal = ({ isOpen, onClose }) => {
           throw new Error('Failed to fetch images');
         }
         const data = await response.json();
-        setImages(data); // Update the images state
+        setImages(data.images); // Update the images state
       } catch (error) {
         console.error('Error fetching images:', error);
       }
@@ -60,7 +60,7 @@ const PartnerCarouselModal = ({ isOpen, onClose }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ images }), // Send the Base64 images array
+        body: JSON.stringify({ 'images':images }), // Send the Base64 images array
       });
 
       if (!response.ok) {

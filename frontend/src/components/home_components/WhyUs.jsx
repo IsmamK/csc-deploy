@@ -24,30 +24,43 @@ const WhyUs = () => {
   const { title, subtitle, bgColor, textColor, divider, features } = whyUsData;
 
   return (
-    <div
-      className="relative"
-      style={{ backgroundColor: bgColor, color: textColor }}
-    >
+    <div className="relative"    style={{ backgroundColor: bgColor ,textColor:textColor }}>
       {divider && <img src={divider} className="absolute top-0 w-full" alt="" />}
 
-      <div className="py-6 sm:py-8 lg:py-12">
-        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          {/* Section title and subtitle */}
-          <div className="mb-10 md:mb-16">
-            <h2 className="mb-4 text-center text-4xl font-bold md:mb-6 lg:text-7xl">{title}</h2>
-            <p className="mx-auto max-w-screen-md text-center md:text-lg">{subtitle}</p>
-          </div>
+      {/* Half circle section */}
+      <div
+        className="w-full py-20 bg-gradient-to-r  relative rounded-b-[70%] overflow-hidden"
+        style={{ backgroundColor: textColor,color:bgColor }}
+      >
+        <div className="text-center px-4 md:px-8">
+          <h2 className="text-5xl font-bold mb-4">{title}</h2>
+          <p className="text-xl md:text-2xl">{subtitle}</p>
+        </div>
+      </div>
 
-          {/* Features grid */}
-          <div className="grid gap-12 sm:grid-cols-2 xl:grid-cols-3 xl:gap-4">
+      {/* Features Section */}
+      <div className="py-12 ">
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 xl:gap-8 ">
             {features.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center border rounded-lg borbder-gray-300 p-10 hover:scale-105">
-                <div className="mb-2 flex h-12 w-12 items-center justify-center sm:mb-4 md:h-14 md:w-14 relative">
-                  <img src={feature.iconUrl} alt={`${feature.title} icon`} className="h-full w-full object-contain  " />
-                  {/* <div class="absolute inset-0 bg-black opacity-50"></div> */}
+              <div
+                key={index}
+                className="relative flex flex-col items-center border border-gray-200 rounded-lg p-4 transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+                style={{ backgroundColor: textColor,color:bgColor }}
+              >
+                <div className="mb-6 w-16 h-16 flex items-center justify-center rounded-full"  style={{ backgroundColor: bgColor }}>
+                  <img
+                    src={feature.iconUrl}
+                    alt={`${feature.title} icon`}
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-                <h3 className="mb-2 text-center text-lg font-semibold md:text-xl">{feature.title}</h3>
-                <p className="mb-2 text-center">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
+                <p className="text-center">{feature.description}</p>
+
+                {/* Hover reveal section */}
+                <div className="absolute inset-0 flex items-center justify-center  bg-opacity-50 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100">
+                </div>
               </div>
             ))}
           </div>

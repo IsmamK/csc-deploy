@@ -52,7 +52,7 @@ const Courses = () => {
         </div>
 
         {Object.keys(courses).map((degreeType) => (
-          <div key={degreeType} className="mb-16">
+          <div key={degreeType} className="mb-16 p-10">
             <h3 className="text-5xl font-semibold mb-8 text-gray-800 capitalize">{degreeType}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {courses[degreeType].map((course) => (
@@ -60,20 +60,20 @@ const Courses = () => {
                   key={course.id}
                   to={`/courses/${course.id}`}
                   state={{ course }} 
-                  className="group relative w-full bg-[#cd993f] text-black rounded-2xl border border-gray-200 p-7 transition-all duration-500"
+                  className="group relative w-56 h-56 bg-[#cd993f] text-black rounded-2xl border border-gray-200 p-5 transition-all duration-500"
                 >
-                  <div className="bg-white group-hover:bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14">
-                    <span className="text-2xl font-bold text-#cd993f">🎓</span>
+                  <div className="bg-white group-hover:bg-white rounded-full flex justify-center items-center mb-5 w-10 h-10">
+                    <span className="text-xl font-bold text-#cd993f">🎓</span>
                   </div>
-                  <h4 className="text-2xl font-semibold mb-3 capitalize transition-all duration-500 group-hover:text-white">
-                    {course.degree}
+                  <h4 className="text-md font-semibold mb-3 capitalize transition-all duration-500 group-hover:text-white">
+                    {course.name}
                   </h4>
                   <p className="text-lg font-normal transition-all duration-500 leading-5 group-hover:text-white">{course.specialization}</p>
-                  <p className="text-sm font-normal transition-all duration-500 leading-5 group-hover:text-white mt-6">
+                  {/* <p className="text-sm font-normal transition-all duration-500 leading-5 group-hover:text-white mt-6">
                     Offered by: <br className=""></br> <span className="font-bold text-xl my-2">{course.awarded_by}</span>
-                  </p>
+                  </p> */}
                   <p className="text-sm font-normal transition-all duration-500 leading-5 group-hover:text-white mt-2">
-                    Duration: <span className="font-bold text-xl">{course.duration}</span>
+                    Duration: <span className="font-bold text-sm">{course.duration}</span>
                   </p>
                 </Link>
               ))}

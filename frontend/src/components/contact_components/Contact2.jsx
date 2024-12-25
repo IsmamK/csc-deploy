@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaPhone } from 'react-icons/fa';
 
 const Contact2 = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -8,13 +9,30 @@ const Contact2 = () => {
     "subtitle": "", 
     "bgColor": "", 
     "textColor": "", 
-    "phone": "", 
-    "email": "", 
-    "imageUrl": "",
-    "addresses":[
-
-    ]
+   
   });
+
+    const [content, setContent] = useState({
+      header: ' ',
+      subHeader: '',
+      buttonText: '',
+      buttonLink: '',
+      email: '',
+      phone: '',
+      bgColor: '',
+      textColor: '',
+      locations: [],
+    });
+
+     useEffect(() => {
+        // Fetch data from API
+        fetch(`${apiUrl}/contact/contact1`)
+          .then((res) => res.json())
+          .then((data) => {
+            setContent(data);
+          });
+      }, [apiUrl]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -69,6 +87,7 @@ const Contact2 = () => {
         className="py-24"
         style={{ backgroundColor: contactData.bgColor, color: contactData.textColor }}
       >
+       
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-24">
             <div
@@ -123,21 +142,30 @@ const Contact2 = () => {
               style={{ backgroundImage: `url(${contactData.imageUrl})` }}
             >
               <div className="lg:w-96 w-auto h-auto bg-white text-black shadow-xl lg:p-6 p-4">
-                <a className="flex items-center pb-4 mb-4 border-b border-gray-300">
-                  <h5 className="text-base font-normal leading-6 ml-5">
-                  <span className='font-bold'>Phone: </span>  {contactData.phone}
+             
+                <div className=' border-b border-gray-300 pb-2 mb-2'>
+               <span className='font-bold'>  Phone: </span> 
+                {content.locations.map((location, index) =>
+                <div className='flex flex-col'>
+                  <h5 className="text-base font-normal  flex">
+                  {location.phone} ( {location.country})
                   </h5>
-                </a>
+                  </div>
+                      )}
+      
+      </div>
                 <a className="flex items-center pb-4 mb-4 border-b border-gray-300">
                   
-                  <h5 className="text-base font-normal leading-6 ml-5">
+                  <h5 className="text-base font-normal leading-6 py-2">
                     <span className='font-bold'>Email: </span> {contactData.email}
                   </h5>
                 </a>
-                {contactData.addresses.map((address, index) => (
-                  <a key={index} className="flex items-center pb-4 mb-4 border-b border-gray-300">
-                    <h5 className="text-base font-normal leading-6 ml-5">
-                      {address}
+          
+                {content.locations.map((location, index) => (
+                  <a key={index} className="flex flex-col items-start pb-4 mb-4 border-b border-gray-300">
+                    <h2 className='font-bold'>{location.country} : </h2>
+                    <h5 className="text-base font-normal leading-6 ">
+                      {location.address}
                     </h5>
                   </a>
                 ))}

@@ -31,10 +31,8 @@ const Home = () => {
       <CarouselComponent />
       {/* <StechBanner /> */}
       <Hero />
-   
       <Services />
       <Cards />
-      <Statistics />
       <GridCards  />
       <WhyUs />
       <OurClients />
@@ -42,6 +40,7 @@ const Home = () => {
       <Contact/>
       {/* <Location /> */}
       <FeaturedVideo  />
+     
 
 
     </>

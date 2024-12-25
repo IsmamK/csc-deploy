@@ -7,17 +7,16 @@ const About1 = ({ about1 }) => {
   return (
     <div style={{ backgroundColor: about1.bgColor, color: about1.textColor }}>
       <section className="py-24 relative">
-        <div className=" max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+        <div className="  px-4 md:px-5 lg:px-5 mx-auto">
           <div className=" justify-start items-center gap-12 grid lg:grid-cols-2 grid-cols-1">
-            <div className=" justify-center items-start gap-6 grid sm:grid-cols-2 grid-cols-1 lg:order-first order-last">
-              {about1.image1 && (
-                <div className="pt-24 lg:justify-center sm:justify-end justify-start items-start gap-2.5 flex">
-                  <img className="rounded-xl object-cover" src={about1.image1} alt="About Us" />
+            
+            <div className="justify-center items-center">
+            {about1.image1 && (
+                <div className="">
+                  <img className="rounded-xl object-cover w-[2000px] h-[600px]" src={about1.image1} alt="About Us" />
                 </div>
               )}
-              {about1.image2 && (
-                <img className="sm:ml-0 ml-auto rounded-xl object-cover" src={about1.image2} alt="About Us" />
-              )}
+                   
             </div>
             <div className=" flex-col justify-center lg:items-start items-center gap-10 inline-flex">
               <div className=" flex-col justify-center items-start gap-8 flex">

@@ -24,23 +24,25 @@ const FAQ = ({ faq }) => {
           </div>
 
           {/* FAQs */}
-          <div className="mx-auto flex w-full flex-col border-t">
+          <div className="mx-auto flex w-full flex-col border-t max-h-[400px] overflow-y-auto">
             {faq.faqs.map((faqItem, index) => (
               <div key={index} className="border-b">
                 <div 
-                  className="flex cursor-pointer justify-between gap-2 py-4  hover:text-white" 
+                  className="flex cursor-pointer justify-between gap-2 py-4 px-4 md:px-8 hover:text-white transition duration-200" 
                   onClick={() => toggleFAQ(index)}
                 >
                   <span className="font-semibold transition duration-100 md:text-lg">
                     {faqItem.question}
                   </span>
 
-                  <span className={` ${activeIndex === index ? 'rotate-180' : ''}`}>
+                  <span className={`transform ${activeIndex === index ? 'rotate-180' : ''}`}>
                     <FaChevronDown className="h-6 w-6" />
                   </span>
                 </div>
                 {activeIndex === index && (
-                  <p className="mb-4 ">{faqItem.answer}</p>
+                  <div className="px-4 pb-4">
+                    <p className="mb-4 text-sm md:text-base">{faqItem.answer}</p>
+                  </div>
                 )}
               </div>
             ))}

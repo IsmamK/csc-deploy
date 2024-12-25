@@ -37,22 +37,22 @@ const Services = () => {
       <div className={`py-6 sm:py-8 lg:py-12`} style={{ backgroundColor: data.bgColor, color: data.textColor }}>
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8 flex flex-col lg:flex-row gap-8">
           {/* Text Section on the Left */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 my-auto">
             <h2 className={`mb-4 text-4xl font-bold lg:text-7xl`}>{data.title}</h2>
             <p className={`mb-6 text-lg`}>{data.description}</p>
           </div>
 
           {/* Services Section on the Right */}
-          <div className="lg:w-1/2 overflow-y-auto max-h-[500px]">
+          <div className="lg:w-1/2 ">
             <ul className="space-y-4">
               {data.services.map((service, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-4 rounded-lg border p-4 shadow-md"
+                  className="flex items-center gap-4 rounded-lg border p-4 shadow-md h-32"
                   style={{ backgroundColor: data.cardBgColor, color: data.cardTextColor }}
                 >
-                  <div className="w-12 h-12 flex-shrink-0 bg-gray-200 rounded-full flex items-center justify-center">
-                    <img src={service.icon}  className="w-8 h-8 object-contain p-1" />
+                  <div className="w-16 h-16 flex-shrink-0 border-[#cd993f] border rounded-full flex items-center justify-center">
+                    <img src={service.icon}  className="w-12 h-12 object-contain p-1" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">{service.title}</h3>
@@ -69,3 +69,4 @@ const Services = () => {
 };
 
 export default Services;
+

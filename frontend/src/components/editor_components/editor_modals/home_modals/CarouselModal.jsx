@@ -15,7 +15,8 @@ const CarouselModal = ({ isOpen, onClose }) => {
           throw new Error('Failed to fetch images');
         }
         const data = await response.json();
-        setImages(data); // Update the images state
+        // alert(data)
+        setImages(data.images); // Update the images state (assuming the API returns the images array)
       } catch (error) {
         console.error('Error fetching images:', error);
       }
@@ -24,13 +25,19 @@ const CarouselModal = ({ isOpen, onClose }) => {
     fetchImages();
   }, [apiUrl]);
 
-  // Helper function to convert file to Base64
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = () => resolve(reader.result); // Resolve with Base64 string
-      reader.onerror = (error) => reject(error); // Reject on error
-      reader.readAsDataURL(file); // Read file as Data URL (Base64)
+      reader.onload = () => {
+        const base64String = reader.result.split(',')[1]; // Extract base64 part of the data URL
+        if (base64String) {
+          resolve(base64String);
+        } else {
+          reject(new Error('File conversion failed'));
+        }
+      };
+      reader.onerror = (error) => reject(error);
+      reader.readAsDataURL(file);
     });
   };
 
@@ -38,7 +45,7 @@ const CarouselModal = ({ isOpen, onClose }) => {
   const handleImageUpload = async (event) => {
     const files = Array.from(event.target.files);
     try {
-      // Convert each file to Base64
+      // Convert each file to Base64 and store only the base64 string
       const base64Images = await Promise.all(files.map(fileToBase64));
       setImages((prevImages) => [...prevImages, ...base64Images]);
     } catch (error) {
@@ -60,7 +67,7 @@ const CarouselModal = ({ isOpen, onClose }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ images }), // Send the Base64 images array
+        body: JSON.stringify({ 'images':images }), // Send the Base64 images array in the correct format
       });
 
       if (!response.ok) {
@@ -69,15 +76,13 @@ const CarouselModal = ({ isOpen, onClose }) => {
 
       const result = await response.json();
       alert('Updated Carousel Images:', result);
-      window.location.reload()
+      console.log(result); // Log the server response
 
-      
     } catch (error) {
       console.error('Error updating images:', error);
     }
 
     onClose(); // Close modal after saving
-    // window.location.reload()
   };
 
   return (
@@ -100,7 +105,7 @@ const CarouselModal = ({ isOpen, onClose }) => {
         <div className="grid grid-cols-3 gap-4 mb-4">
           {images.map((image, index) => (
             <div key={index} className="relative">
-              <img src={image} alt={`Carousel Image ${index + 1}`} className="w-full h-auto rounded-md" />
+              <img src={`data:image/png;base64,${image}`} alt={`Carousel Image ${index + 1}`} className="w-full h-auto rounded-md" />
               <button
                 className="btn btn-circle btn-error absolute top-2 right-2"
                 onClick={() => handleRemoveImage(index)}

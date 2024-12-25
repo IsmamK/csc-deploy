@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/layout_components/Navbar';
 import Footer from '../components/layout_components/Footer';
 import LanguageSelector from '../components/LanguageSelector';
+import Statistics from '../components/home_components/Statistics';
 
 const dividers = {
   'layerWave': { black: "dividers/layerWaves-black.svg", white: 'dividers/layerWaves-white.svg' },
@@ -52,7 +53,8 @@ const Layout = () => {
       <Navbar />
       {/* <LanguageSelector /> */}
       <Outlet context={{ getDivider, availableShapes }} />
-      <Footer divider={getDivider('triangle')} bgColor={'black'} textColor={'white'}/>
+      <Statistics />
+      <Footer/>
     </>
   );
 };

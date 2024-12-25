@@ -23,7 +23,7 @@ const About2 = ({ about2 }) => {
               <div className="w-full flex-col justify-center items-start gap-6 flex">
                 <div className="w-full justify-start items-center gap-8 grid md:grid-cols-2 grid-cols-1">
                   {about2.stats.slice(0, 2).map((stat, index) => (
-                    <div key={index} className="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
+                    <div key={index} className="w-full h-full p-3.5 rounded-xl border border-gray-200  hover:border-4 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
                       <h4 className="text-2xl font-bold font-manrope leading-9">{stat.title}</h4>
                       <p className="font-normal leading-relaxed">{stat.description}</p>
                     </div>
@@ -31,7 +31,7 @@ const About2 = ({ about2 }) => {
                 </div>
                 <div className="w-full h-full justify-start items-center gap-8 grid md:grid-cols-2 grid-cols-1">
                   {about2.stats.slice(2).map((stat, index) => (
-                    <div key={index} className="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
+                    <div key={index} className="w-full h-full p-3.5 rounded-xl border border-gray-200  hover:border-4 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
                       <h4 className="text-2xl font-bold font-manrope leading-9">{stat.title}</h4>
                       <p className="text-base font-normal leading-relaxed">{stat.description}</p>
                     </div>

@@ -37,64 +37,31 @@ const Footer = () => {
   
 
   return (
-    <>
-    <footer className=" font-bold p-4 shadow-xl " style={{ backgroundColor: data.bgColor, color: data.textColor }}>
+    
+    <footer className=" font-bold px-20 py-0  m-0" style={{ backgroundColor: data.bgColor, color: data.textColor }}>
       
-      <div className='footer flex flex-col lg:flex-row  lg:items-center '>
-      <div className='w-48 h-32 mt-10 bg-black flex items-center rounded-lg justify-center mx-auto'>
-  <img src ={data.logo}></img>
-</div>
+      <div className='footer flex flex-col lg:flex-row   lg:items-center '>
+          <img src ={data.logo} className='w-60 m-0 p-0'></img>
         
-       {/* Social media links section */}
-      
-       <div className="social-icons flex  gap-0 justify-center mt-4 mx-auto lg:ml-20">
-  {data.socials.map((social) => (
-    <a
-      href={social.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="social-icon p-2 rounded-full h-20 w-20 "
-    >
-      <img
-        src={social.icon}
-        className="h-16 w-16 p-2 rounded-full object-cover " // Ensure images are contained and circular
-        alt={social.name} // It's a good practice to add alt text for accessibility
-      />
-    </a>
-  ))}
-</div>
+        
+       
 
 
 
-      <nav className='lg:mx-auto text-xs flex flex-col '>
+      <nav className='lg:mx-auto text-xs flex flex-col mx-0'>
         <div>
         <h6 className="font-extrabold text-xl">Company</h6>
         </div>
         <div className='flex lg:flex-col gap-4'>
-        <a href="/" className="link link-hover" style={{ color: data.textColor }}>Homepage</a>
-        <a href="/projects" className="link link-hover" style={{ color: data.textColor }}> Our Projects</a>
-        <a href="/gallery" className="link link-hover" style={{ color: data.textColor }}>Gallery of Stunning Images</a>
-        <a href="/contact" className="link link-hover" style={{ color: data.textColor }}>Contact Us </a>
+        <a href="/" className="link link-hover" style={{ color: data.textColor }}>Home</a>
+        <a href="/about" className="link link-hover" style={{ color: data.textColor }}> About Us</a>
+        <a href="/gallery/photos" className="link link-hover" style={{ color: data.textColor }}>Gallery of Stunning Images</a>
+        <a href="/gallery/videos" className="link link-hover" style={{ color: data.textColor }}>Videos </a>
         
         </div>
       </nav>
 
    
-      
-      <nav className='lg:mx-auto text-xs flex flex-col'> 
-      <div>
-        <h6 className="font-extrabold text-xl">
-          <a href ="/about">About</a>
-          </h6>
-        </div>
-        <div className='flex lg:flex-col gap-4'>
-        <a href="/about/company-profile"  className="link link-hover" style={{ color: data.textColor }}>Company Profile</a>
-        <a href="/about/message" className="link link-hover" style={{ color: data.textColor }}>Chairman's Message</a>
-        <a href="/about/story" className="link link-hover" style={{ color: data.textColor }}>Mission, Vision and Story</a>
-        <a href="/about/team"   className="link link-hover" style={{ color: data.textColor }}>Team</a>
-        </div>
-      </nav>
-
       <nav className='lg:mx-auto text-xs flex flex-col'>
         <div>
         <h6 className="font-extrabold text-xl">Services</h6>
@@ -113,19 +80,32 @@ const Footer = () => {
         ))}
         </div>
       </nav>
+      
+      <nav className='lg:mx-auto text-xs flex flex-col'> 
+      <div>
+        <h6 className="font-extrabold text-xl">
+          Partners & Connections
+          </h6>
+        </div>
+        <div className='flex lg:flex-col gap-4'>
+        <a href="/affiliations"  className="link link-hover" style={{ color: data.textColor }}>Affiliations</a>
+        <a href="/b2b" className="link link-hover" style={{ color: data.textColor }}>Business-to-Business</a>
+        <a href="/contact" className="link link-hover" style={{ color: data.textColor }}>Contact</a>
+        {/* <p    className="link link-hover" style={{ color: data.textColor }}></p> */}
+        </div>
+      </nav>
+
       </div>
 
       
    
-      <div className="copyright text-center mt-10 text-xsg-">
-        <p>&copy; {data.copyText}</p>
-      </div>
+      
       
     </footer>
     
    
 
-      </>
+ 
   );
 };
 
